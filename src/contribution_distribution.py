@@ -1,13 +1,46 @@
-import pandas as import pd
+import pandas as pd
 import numpy as np
 import os
+import datetime
 
-data_import = pd.read_table(os.curdir + '\input\incont.txt')
+data_in = pd.read_table(os.curdir + './input/itcont_1.txt', sep='|', header = None)
 
-data_columns = data_import[[0,7,10,13,14,15]]
-#axis lables CMTE_ID, NAME, ZIP_CODE, TRANSACTION_DT, TRANSACTION_AMT, OTHER_ID
+#  get rid of unused columns
+data_in = data_in[[0,7,10,13,14,15]]
 
-data_clean = {} # data that has correct input
+data_in = data_in.rename(columns={0:'CMTE_ID', 7:'NAME',
+                                      10: 'ZIP_CODE', 13: 'TRAN_DT',
+                                      14: 'TRANS_AMT', 15: 'OTHER_ID'})
+
+#making null/empty values zero
+data = data_in.fillna(0)
+
+#converting 0 into
+data['CMTE_ID'] = data['CMTE_ID'].astype('str')
+cmte_id_check = data['CMTE_ID'] != '0'
+
+#
+data['NAME'] = data['NAME'].astype('str')
+name_check = data['NAME'] != ''
+
+#change the column for ZIP_CODE into string to get length
+data['ZIP_CODE'] = data['ZIP_CODE'].astype('str')
+zip_check = data['ZIP_CODE'].str.len() >= 5
+
+date_check = data['TRAN_DT'] != 0
+
+transaction_check = data['TRANS_AMT'] != 0
+
+other_id_check = data['OTHER_ID'] == 0
+
+clean_data = data[other_id_check & cmte_id_check]
+
+
+clean_data =
+
+
+
+
 
 def data_cleaning(stuff):
     row_num = 0
@@ -32,7 +65,7 @@ def data_out(stuff_out):
     number_of_contributions = []
     for x in stuff_out:
         running_percentile += 1
-        
+
 '''
 final output into repeat_donors.txt column names seperated by '|'
 1 CMTE_ID
