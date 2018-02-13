@@ -28,26 +28,24 @@ I used a slicing technique for cleaning the data. I find it easy to read and und
 
 
 Column names for the raw data:
-|Number | Columns|
-|---|---|
-|1 | CMTE_ID |
-|2 | AMNDT_IND|
-|3|	RPT_TP|
-|4|	TRANSACTION_PGI|
-|5|	IMAGE_NUM|
-|6|	TRANSACTION_TP|
-|7|	ENTITY_TP|
-|8|	NAME|
-|9|	CITY|
-|10|	STATE|
-|11|	ZIP_CODE|
-|12|	EMPLOYER|
-|13|	OCCUPATION|
-|14|	TRANSACTION_DT|
-|15|	TRANSACTION_AMT|
-|16|	OTHER_ID|
-|17|	TRAN_ID|
-|18|	FILE_NUM|
-|19|	MEMO_CD|
-|20|	MEMO_TEXT|
-|21|	SUB_ID|
+1. CMTE_ID |
+2. AMNDT_IND|
+3.	RPT_TP|
+4. TRANSACTION_PGI|
+5. IMAGE_NUM|
+6. TRANSACTION_TP|
+7. ENTITY_TP|
+8.	NAME|
+9. CITY|
+10.	STATE|
+11.	ZIP_CODE|
+12.	EMPLOYER|
+13.	OCCUPATION|
+14.	TRANSACTION_DT|
+15. TRANSACTION_AMT|
+16.	OTHER_ID|
+17.	TRAN_ID|
+18.	FILE_NUM|
+19.	MEMO_CD|
+20.	MEMO_TEXT|
+21.	SUB_ID|
