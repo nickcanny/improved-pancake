@@ -27,8 +27,8 @@ I used a slicing technique for cleaning the data. I find it easy to read and und
 
 
 
-Column names for the raw data
-|# | Columns:|
+Column names for the raw data:
+|Number | Columns:|
 |---|---------|
 |1 | CMTE_ID |
 |2 | AMNDT_IND|
