@@ -44,14 +44,26 @@ most_recent_donations = clean_data['TRANS_DT'] == max(clean_data['TRANS_DT'])
 current_donations = clean_data[most_recent_donations]
 
 def multi_donation(df):
+  
+    # creating a list of donations to use while getting percentile
     a = []
     a.append(df['TRANS_AMT'])
     percent = pd.read_table(os.curdir + './input/percentile.txt', header = None)
+    
+    # tottal contributions in zip code
     df['ACCUM_TOTAL'] = sum(a)
+    
+    # number of transactions in each zip code
     df['INDI_TRANS'] = df['TRANS_AMT']
+    
+    # number of transactions in each zip code
     df['NUM_TRANS'] = len(df)
+    
+    # getting the percentile using nearest rank method
     n = np.around((percent/100)*len(a))-1
     df['PERCENTILE'] = int(a[n])
+    
+    # adding the columns and printing them out
     try:
         return df.loc[:, ['ACCUM_TOTAL', 'NUM_TRANS', 'PERCENTILE', 'INDI_TRANS']]
     except:
